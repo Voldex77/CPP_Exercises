@@ -14,7 +14,7 @@ const std::string& Card::getColor() const
     return _color;
 }
 
-bool Card::operator==(Card other)
+const bool Card::operator==(Card other) const
 {
     return _value == other.getValue();
 };

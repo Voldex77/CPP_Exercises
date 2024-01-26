@@ -14,6 +14,6 @@ public:
     void print() const { std::cout << _value << " de " << _color << std::endl; };
     const unsigned int& getValue() const;
     const std::string& getColor() const;
-    bool operator==(Card other);
+    const bool operator==(Card other) const;
 
 };
