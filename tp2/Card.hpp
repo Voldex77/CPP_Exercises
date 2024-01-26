@@ -15,5 +15,5 @@ public:
     const unsigned int& getValue() const;
     const std::string& getColor() const;
     const bool operator==(Card other) const;
-
+    const bool operator<(Card other) const;
 };

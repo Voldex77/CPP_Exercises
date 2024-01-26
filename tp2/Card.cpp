@@ -18,3 +18,8 @@ const bool Card::operator==(Card other) const
 {
     return _value == other.getValue();
 };
+
+const bool Card::operator<(Card other) const
+{
+    return _value < other.getValue();
+};
