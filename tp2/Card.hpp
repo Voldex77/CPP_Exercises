@@ -9,5 +9,5 @@ private:
 
 public:
     Card(unsigned int value, std::string color);
-    void print() { std::cout << _value << " de " << _color << std::endl; };
+    void print() const { std::cout << _value << " de " << _color << std::endl; };
 };
