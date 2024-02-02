@@ -1,11 +1,11 @@
 #include <iostream>
 
-const int add(const int a, const int b)
+const int add(int a, int b)
 {
     return a + b;
 }
 
-void add_to(int &a, const int b)
+void add_to(int &a, int b)
 {
     a += b;
 }
