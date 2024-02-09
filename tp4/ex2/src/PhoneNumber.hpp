@@ -28,6 +28,16 @@ class PhoneNumber
             return v[index];
         }
 
+        std::ostream& operator<< (std::ostream& stream)
+        {
+            for (auto e: v)
+            {
+                stream << e << "";
+            }
+            stream << std::endl;
+            return stream;
+        }
+
 
     private:
         std::vector<int> v;
