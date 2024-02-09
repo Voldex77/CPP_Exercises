@@ -18,8 +18,12 @@ class PhoneNumber
             return true;
         }
 
-        int operator[] (int index)
+        int operator[] (int index) const
         {
+            if (index < 0 || index > 4)
+            {
+                return -1;
+            }
             return v[index];
         }
 
