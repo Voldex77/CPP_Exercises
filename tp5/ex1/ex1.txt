@@ -1,0 +1,50 @@
+
+1.
+a.
+
+4 rvalue
+4 + i rvalue
+i lvalue
+i = 4 lvalue
+i == rvalue
+
+
+i = (4 = 5)
+(i = j) = 5
+i = (j = 5) (ici ça renvoie j)
+
+i++ rvalue
+++i lvalue
+
+b.
+
+vec[5] lvalue
+vec lvalue
+vec.pop_back() rvalue (avec void c'est aussi rvalue)
+std::vector { 'a', 'b', 'c' } rvalue (car obj temporaire)
+vec.push_back('d') rvalue (avec void c'est idem)
+std::move(vec) rvalue
+
+c.
+ptr + 3 rvalue
+*(ptr + 3) lvalue
+*ptr + 3 rvalue
+
+-----
+ptr = int*
+ptr+3 = ptr2 (ici, on peut pas faire comme ça)
+rvalue (ptr+3)
+-----
+
+d.
+std::string { "aaaa" } rvalue
+str lvalue
+str + "aaaa" rvalue
+str += "aaaa" lvalue
+"aaaa" rvalue
+
+2.
+Pour le constructeur de copie, 
+il faut créer avec une syntaxe
+
+Pour le constructeur de déplacement,
