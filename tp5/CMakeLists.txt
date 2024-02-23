@@ -3,7 +3,7 @@ project(TP5)
 
 add_executable(tp5-ex2
     2-ptr/main.cpp
-    2-ptr/Object.hpp
+    2-ptr/CopyablePtr.cpp
 )
 
 target_compile_features(tp5-ex2 PRIVATE cxx_std_17)
