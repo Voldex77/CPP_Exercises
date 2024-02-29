@@ -35,6 +35,8 @@ cmake --build <chemin_vers_le_dossier_build> --target tp5-ex3
 Ouvrez maintenant le fichier [`ProgramData.cpp`](./3-recipes/ProgramData.cpp).  
 Pourquoi le programme ne fait rien ? 
 
+- Le programme ne fait rien car les fonctions membres de la classe ProgramData ne sont pas définit complétement. De plus, on a aucuns attributs privés de la classe ProgramData.
+
 ### B. Matériaux
 
 Pour le restant de l'exercice, n'hésitez pas à ajouter les fonctions qui vous sembleraient pertinentes, même si on ne vous les demande pas explicitement. 
