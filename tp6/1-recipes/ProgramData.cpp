@@ -14,10 +14,16 @@ void ProgramData::get_materials(std::vector<const Material*>& materials) const
 }
 
 void ProgramData::register_recipe(std::vector<std::string> materials, std::vector<std::string> products)
-{}
+{
+    _recipes.push_back(std::make_unique<Recipe>(materials, products));
+}
 
 void ProgramData::collect_doable_recipes(std::vector<const Recipe*>& recipes) const
-{}
+{
+    for(const auto& recipe: _recipes) {
+        recipes.push_back(recipe.get());
+    }
+}
 
 ProductionResult ProgramData::produce(size_t recipe_id)
 {

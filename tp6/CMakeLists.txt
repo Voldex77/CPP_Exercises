@@ -5,7 +5,7 @@ add_executable(tp6-ex1
     1-recipes/main.cpp
     1-recipes/Material.cpp
     1-recipes/ProgramData.cpp
-    1-recipes/Recipe.hpp
+    1-recipes/Recipe.cpp
 )
 
 target_compile_features(tp6-ex1 PRIVATE cxx_std_17)
