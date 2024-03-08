@@ -7,6 +7,7 @@ add_executable(tp7-ex2
     dungeon/Logger.hpp
     dungeon/Random.cpp
     dungeon/Random.hpp
+    dungeon/Character.cpp
 )
 
 target_compile_features(tp7-ex2 PRIVATE cxx_std_17)

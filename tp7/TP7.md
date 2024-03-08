@@ -69,7 +69,7 @@ int main()
     tiger_as_animal.move();        // I2 statique: Animal dynamique: Tiger
 
     bird.move();                   // I3 statique: Bird dynamique: Bird
-    bird_as_animal.move();         // I4 statique: Animal dynamique: Bird
+    bird_as_animal.move();         // I4 statique: Animal dynamique: Animal (car const)
 
     bird.can_eat_plant();          // I5 statique: Bird dynamique: Bird bird
     bird_as_herb.can_eat_plant();  // I6 statique: Herbivore dynamique: Herbivore herbivore
@@ -113,6 +113,12 @@ cmake --build <chemin_vers_le_dossier_build> --target tp6-ex1
 - Dans [Dungeon.cpp](dungeon/Dungeon.cpp), quel est le rôle de la fonction `display` ?
 - Dans [Dungeon.cpp](dungeon/Dungeon.cpp), quel est le rôle de la fonction `update` ?
 - Quelle variable du `main` porte l'ownership des entitées ?
+
+```b
+- Le rôle de la fonction `display` est d'afficher l'interface ASCII du donjon courrant ou plutôt de la grille courrante.
+- Le rôle de la fonction `update` est de mettre à jour la grille du donjon.
+- `grid` ou `all_entities` port l'ownership des entitées.
+```
 
 ### B. Personnage
 
