@@ -7,6 +7,5 @@ class Character : public Entity
     public:
         Character(int x, int y);
         char get_representation() const override;
-    private:
-        Entity entity;
+        // void update();
 };

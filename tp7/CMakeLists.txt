@@ -8,6 +8,7 @@ add_executable(tp7-ex2
     dungeon/Random.cpp
     dungeon/Random.hpp
     dungeon/Character.cpp
+    dungeon/Trap.cpp
 )
 
 target_compile_features(tp7-ex2 PRIVATE cxx_std_17)

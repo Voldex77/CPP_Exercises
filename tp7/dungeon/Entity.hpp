@@ -17,7 +17,7 @@ public:
 
     virtual char get_representation() const { return '?'; }
 
-    void update() { random_move(_x, _y); }
+    virtual void update() { random_move(_x, _y); }
 
 private:
     int _x = 0;
