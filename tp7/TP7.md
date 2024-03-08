@@ -58,30 +58,30 @@ int main()
 {
     Tiger tiger;
     Animal& tiger_as_animal = tiger;
-    Carnivore& tiger_as_carn = tiger;
+    Carnivore& tiger_as_carn = tiger; // ici, on doit avoir des références pour pouvoir copier le tiger, surtout pour accèder à ses propres méthodes implémentés.
 
     Bird bird;
     Animal& bird_as_animal = bird;
     Herbivore& bird_as_herb = bird;
     Carnivore& bird_as_carn = bird;
 
-    tiger.move();                  // I1
-    tiger_as_animal.move();        // I2
+    tiger.move();                  // I1 statique: Tiger dynamique: Tiger
+    tiger_as_animal.move();        // I2 statique: Animal dynamique: Tiger
 
-    bird.move();                   // I3
-    bird_as_animal.move();         // I4
+    bird.move();                   // I3 statique: Bird dynamique: Bird
+    bird_as_animal.move();         // I4 statique: Animal dynamique: Bird
 
-    bird.can_eat_plant();          // I5
-    bird_as_herb.can_eat_plant();  // I6
-    bird_as_carn.can_eat_plant();  // I7
+    bird.can_eat_plant();          // I5 statique: Bird dynamique: Bird bird
+    bird_as_herb.can_eat_plant();  // I6 statique: Herbivore dynamique: Herbivore herbivore
+    bird_as_carn.can_eat_plant();  // I7 statique: Carnivore dynamique: Carnivore carnivore
 
-    tiger.can_eat_plant();         // I8
-    tiger.can_eat_meat();          // I9
-    tiger_as_carn.can_eat_meat();  // I10
+    tiger.can_eat_plant();         // I8 statique: Tiger dynamique: carnivore
+    tiger.can_eat_meat();          // I9 statique: Tiger dynamique: tiger
+    tiger_as_carn.can_eat_meat();  // I10 statique: Carnivore dynamique: Carnivore
 
-    bird.type();                   // I11
-    bird_as_animal.type();         // I12
-    tiger_as_animal.type();        // I13
+    bird.type();                   // I11 statique: bird dynamique: bird
+    bird_as_animal.type();         // I12 statique: animal dynamique: animal
+    tiger_as_animal.type();        // I13 statique: animal dynamique: animal
 
     return 0;
 }
