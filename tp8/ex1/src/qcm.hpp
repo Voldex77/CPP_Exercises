@@ -205,4 +205,4 @@ int main()
 // 24. On utilise le mot-clef "pure virtual" pour indiquer qu'une fonction-membre est virtuelle pure.
 #define ANSWER_24 false
 // 25. S'il est impossible d'instancier la classe Mere, le code à la ligne 1 ci-dessus ne compile pas.
-#define ANSWER_25 fakse
+#define ANSWER_25 false
