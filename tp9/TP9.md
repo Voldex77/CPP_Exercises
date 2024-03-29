@@ -12,19 +12,23 @@
 
 | Conteneur     | Insertion (en tête / en fin) | Suppression (en tête / en fin) | Accès |
 |---------------|--------------|--------------|--------------|
-| array         |     N/A      |     N/A      |              |
-| vector        |              |              |              |
-| deque         |              |              |              |
-| forward_list  |              |              |              |
-| list          |              |              |              |
-| set           |              |              |              |
-| unordered_set |              |              |              |
+| array         |     N/A      |     N/A      |     O(1)     |
+| vector        |   O(n)/O(1)  |   O(n)/O(1)  |     O(1)     |
+| deque         |     O(1)     |     O(1)     |     O(1)     |
+| forward_list  |   O(1)/O(n)  |   O(1)/O(n)  |     O(1)     |
+| list          |     O(1)     |     O(1)     |     O(1)     |
+| set           |   O(log(n))  |   O(log(n))  |     N/A      |
+| unordered_set |     O(1)     |     O(1)     |     N/A      |
 
 2. Supposons que vous ayez récupéré un itérateur sur un élément d'un conteneur avec : `auto it = std::find(ctn.begin(), ctn.end(), element_to_find)`.  
 En fonction du type de conteneur, quelles sont les opérations susceptibles d'invalider cet itérateur ? Essayez d'être précis dans vos réponses.  
 Exemple : Si `ctn` est un `std::vector`, alors `it` peut être invalidé en cas de suppression d'un élément précédent `it` dans le conteneur.
 
+Si `ctn` est un `std::deque`, 
+
 3. Quelle est la différence entre les fonctions `push_back` et `emplace_back` de la classe-template `std::vector` ?
+
+Dans la classe-template `std::vector`, emplace_back construit l'élément dans l'emplacement à la fin. Tandis que push_back ne fait qu'ajouter l'élément vers la fin.
 
 ## Exercice 2 - Lambdas et algorithmes (40 min)
 
