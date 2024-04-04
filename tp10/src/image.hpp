@@ -18,11 +18,12 @@ class Image
         P& operator()(const size_t i, const size_t j) {
             return _pixels[j][i];
         }
-        const P& operator()(const size_t i, const size_t j) {
+        const P& operator()(const size_t i, const size_t j) const {
             return _pixels[j][i];
         }
 
-        
+
+
     private:
         std::array<std::array<P, W>, H> _pixels;
 };
