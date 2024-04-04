@@ -1,6 +1,9 @@
 #pragma once
 
+#include <array>
+#include <cstddef>
 // UTILISEZ --std=c++17
+
 
 template <typename P, size_t W, size_t H>
 class Image
@@ -20,6 +23,17 @@ class Image
         }
         const P& operator()(const size_t i, const size_t j) const {
             return _pixels[j][i];
+        }
+
+        friend Image operator+(const Image& self, const Image& other) {
+            auto result = new Image<P, W, H>();
+
+            for (auto h = size_t {0}; h < H; h++) {
+                for (auto w = size_t {0}; w < W; w++) {
+                    result._pixels[w][h] = self(w, h) + other(w, h);
+                }
+            }
+            return result;
         }
 
 
