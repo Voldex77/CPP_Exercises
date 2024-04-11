@@ -12,6 +12,25 @@ auto to_string(const T& data)
     return ss.str();
 }
 
+template <typename T, typename Ret = decltype(std::to_string(std::declval<T>()))>
+Ret to_string(const T&& data)
+{
+    return std::to_string(data);
+}
+
+template <typename T>
+auto to_string(const T&& data)
+{
+    return to_string(std::forward<T>(data));
+}
+
+template <typename T>
+auto to_string(const T&& data)
+{
+    return;
+}
+
+
 class Empty
 {};
 
