@@ -18,7 +18,7 @@ class HybridArray
             }
             if (_staticIndex == TStaticSize) {
                 for(auto elem: _values) {
-                    _vectorvalues.push_back(elem);
+                    _vectorvalues.push_back(std::move(elem));
                 }
             }
             //_vectorvalues.push_back(value);
@@ -26,16 +26,23 @@ class HybridArray
         }
 
         size_t size() const {
-            //return (_vectorvalues.empty() ? _staticIndex : _vectorvalues.size());
             return _staticIndex;
         }
 
         const TValue& operator[](unsigned int index) const {
-            return _values[index];
+            /*if (_staticIndex <= TStaticSize) {
+                return _values[index];
+            }
+            return _vectorvalues[index];*/
+            return _vectorvalues.empty() ? _values[index] : _vectorvalues[index];
         }
 
         TValue& operator[](unsigned int index) {
-            return _values[index];
+            /*if (_staticIndex <= TStaticSize) {
+                return _values[index];
+            }
+            return _vectorvalues[index];*/
+            return _vectorvalues.empty() ? _values[index] : _vectorvalues[index];
         }
 
 
