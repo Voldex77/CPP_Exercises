@@ -13,24 +13,34 @@ class HybridArray
         }
 
         TValue& push_back(const TValue& value) {
-            values.push_back(value);
-            return values.back();
+            if (_staticIndex < TStaticSize) {
+                return _values[_staticIndex++] = value;
+            }
+            if (_staticIndex == TStaticSize) {
+                for(auto elem: _values) {
+                    _vectorvalues.push_back(elem);
+                }
+            }
+            //_vectorvalues.push_back(value);
+            return _vectorvalues[_staticIndex++] = value;
         }
 
         size_t size() const {
-            return values.size();
+            //return (_vectorvalues.empty() ? _staticIndex : _vectorvalues.size());
+            return _staticIndex;
         }
 
         const TValue& operator[](unsigned int index) const {
-            return values[index];
+            return _values[index];
         }
 
         TValue& operator[](unsigned int index) {
-            return values[index];
+            return _values[index];
         }
-        
+
 
     private:
-        std::vector<TValue> values;
-
+        std::vector<TValue> _vectorvalues;
+        std::array<TValue, TStaticSize> _values;
+        size_t _staticIndex = 0u;
 };
