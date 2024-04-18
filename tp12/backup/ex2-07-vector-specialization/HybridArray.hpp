@@ -8,6 +8,16 @@ template <typename TValue, size_t TStaticSize>
 class HybridArray
 {
     public:
+        template <typename... TArgs>
+        HybridArray(TArgs&&... args) {
+            if constexpr (sizeof...(args) < TStaticSize) {
+                (push_back(std::forward<TArgs>(args)), ...);
+            } else {
+                (_vectorvalues.push_back(std::forward<TArgs>(args)), ...);
+                _staticIndex = _vectorvalues.size();
+            }
+        }
+
         constexpr static size_t static_size() {
             return TStaticSize;
         }
