@@ -47,6 +47,5 @@ class HybridArray
 template <typename TValue>
 class HybridArray<TValue, 0u> : public std::vector<TValue>
 {
-    /*private:
-        std::vector<TValue> _values;*/
+    using std::vector<TValue>::vector;
 };
