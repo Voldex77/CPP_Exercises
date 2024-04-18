@@ -44,8 +44,9 @@ class HybridArray
         size_t _staticIndex = 0u;
 };
 
-// template <typename TValue, 0u>
-// class HybridArray
-// {
-
-// };
+template <typename TValue>
+class HybridArray<TValue, 0u> : public std::vector<TValue>
+{
+    /*private:
+        std::vector<TValue> _values;*/
+};
