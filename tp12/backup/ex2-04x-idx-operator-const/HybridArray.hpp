@@ -21,8 +21,9 @@ class HybridArray
                     _vectorvalues.push_back(std::move(elem));
                 }
             }
-            //_vectorvalues.push_back(value);
-            return _vectorvalues[_staticIndex++] = value;
+            _vectorvalues.push_back(value);
+            _staticIndex++;
+            return _vectorvalues.back();
         }
 
         size_t size() const {
@@ -45,9 +46,14 @@ class HybridArray
             return _vectorvalues.empty() ? _values[index] : _vectorvalues[index];
         }
 
-
     private:
         std::vector<TValue> _vectorvalues;
         std::array<TValue, TStaticSize> _values;
         size_t _staticIndex = 0u;
 };
+
+// template <typename TValue, 0u>
+// class HybridArray
+// {
+
+// };
