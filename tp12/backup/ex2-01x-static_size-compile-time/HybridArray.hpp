@@ -17,6 +17,19 @@ class HybridArray
             return values.back();
         }
 
+        size_t size() const {
+            return values.size();
+        }
+
+        const TValue& operator[](unsigned int index) const {
+            return values[index];
+        }
+
+        TValue& operator[](unsigned int index) {
+            return values[index];
+        }
+        
+
     private:
         std::vector<TValue> values;
 
