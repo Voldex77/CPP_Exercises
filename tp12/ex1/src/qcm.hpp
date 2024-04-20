@@ -14,7 +14,7 @@
 
 // Question 00
 // Une std::map est un conteneur associatif dont l'indexation est réalisé au moyen d'une table de hashage. 
-#define ANSWER_00
+#define ANSWER_00 true
 
 // Question 01 & 02
 #ifdef CODE_IGNORE_PAR_LE_COMPILATEUR
@@ -31,7 +31,7 @@ struct MyObject
 #endif
 
 // Je peux définir et insérer une instance de MyObject dans un std::unordered_set<MyObject>.  
-#define ANSWER_01
+#define ANSWER_01 
 
 // Je peux définir et insérer une instance de MyObject dans un std::set<MyObject>.  
 #define ANSWER_02
