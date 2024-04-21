@@ -23,11 +23,14 @@ class HybridArray {
             return (vector.empty()) ? array[i] : vector[i];
         }
 
-        TValue& push_back(TValue v) {
+        TValue& push_back(const TValue& v) {
             if (index < StaticSize) {
                 return array[index++] = v;
             }
-            vector.push_back(std::move(v));
+            for(auto e: array) {
+                vector.push_back(std::move(e));
+            }
+            vector.push_back(v);
             index++;
             return vector.back();
         }
