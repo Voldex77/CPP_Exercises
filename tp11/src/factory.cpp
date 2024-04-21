@@ -3,6 +3,8 @@
 #include <sstream>
 #include <string>
 #include <vector>
+#include <map>
+#include <functional>
 
 // Liste des entitées à construire
 std::string desc = R"(Object
@@ -22,16 +24,25 @@ public:
 class Factory
 {
 public:
-    // using Builder = ...;
+    using Builder = std::function<std::unique_ptr<Entity>()>;
 
     template <typename TDerivedEntity>
-    void register_entity()
-    {}
+    void register_entity(const std::string& id)
+    {
+        Builder builder = []() { return std::make_unique<TDerivedEntity>(); };
+        _builders.emplace(id, builder);
+    }
 
-    std::unique_ptr<Entity> build(const std::string& id) const { return nullptr; }
+    std::unique_ptr<Entity> build(const std::string& id) const {
+        auto it = _builders.find(id);
+        if (it != _builders.end()) {
+            return it->second();
+        }
+        return nullptr;
+    }
 
 private:
-    // ...
+    std::map<std::string, Builder> _builders;
 };
 
 class Object : public Entity
@@ -91,7 +102,8 @@ private:
 int main()
 {
     Factory factory;
-    // factory.register_entity<Object>("Object");
+    factory.register_entity<Object>("Object");
+    factory.register_entity<Tree>("Tree");
 
     std::vector<std::unique_ptr<Entity>> entities;
 
