@@ -42,4 +42,5 @@ class HybridArray {
 
 template<typename TValue>
 class HybridArray<TValue, 0u> : public std::vector<TValue> {
+    using std::vector<TValue>::vector; // ici, on apporte tous les fonctions membres de std::vector dans HybridArray.
 };
