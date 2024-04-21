@@ -39,3 +39,7 @@ class HybridArray {
         std::vector<TValue> vector;
         size_t index;
 };
+
+template<typename TValue>
+class HybridArray<TValue, 0u> : public std::vector<TValue> {
+};
