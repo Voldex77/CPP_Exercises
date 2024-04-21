@@ -11,6 +11,18 @@ class HybridArray {
             return StaticSize;
         }
 
+        size_t size() const {
+            return index;
+        }
+
+        TValue& operator[](int i) {
+            return (vector.empty()) ? array[i] : vector[i];
+        }
+
+        const TValue& operator[](int i) const {
+            return (vector.empty()) ? array[i] : vector[i];
+        }
+
         TValue& push_back(TValue v) {
             if (index < StaticSize) {
                 return array[index++] = v;
