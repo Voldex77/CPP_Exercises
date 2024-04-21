@@ -12,6 +12,18 @@ auto to_string(const T& data)
     return ss.str();
 }
 
+auto to_string(const std::string& str) {
+    return str;
+}
+
+auto to_string(std::string&& str) {
+    return str;
+}
+
+auto to_string(const char* str) {
+    return std::string {str};
+}
+
 class Empty
 {};
 

@@ -26,10 +26,10 @@ class Factory
 public:
     using Builder = std::function<std::unique_ptr<Entity>()>;
 
-    template <typename TDerivedEntity>
-    void register_entity(const std::string& id)
+    template <typename TDerivedEntity, typename... TArgs>
+    void register_entity(const std::string& id, TArgs&&... args)
     {
-        Builder builder = []() { return std::make_unique<TDerivedEntity>(); };
+        Builder builder = [&args...]() { return std::make_unique<TDerivedEntity>(args...); };
         _builders.emplace(id, builder);
     }
 
@@ -104,6 +104,12 @@ int main()
     Factory factory;
     factory.register_entity<Object>("Object");
     factory.register_entity<Tree>("Tree");
+
+    factory.register_entity<Person>("Person", "Jean");
+    factory.register_entity<Animal>("Dog", "dog");
+
+    Person p {"kami"};
+    factory.register_entity<House>("House", std::reference_wrapper(p));
 
     std::vector<std::unique_ptr<Entity>> entities;
 
