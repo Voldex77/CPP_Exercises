@@ -7,6 +7,16 @@
 template <typename TValue, size_t StaticSize>
 class HybridArray {
     public:
+        template <typename... TArgs>
+        HybridArray(TArgs&&... args) {
+            if constexpr (sizeof...(args) < StaticSize) {
+                (push_back(std::forward<TArgs>(args)), ...);
+            } else {
+                (vector.push_back(std::forward<TArgs>(args)), ...);
+                index = vector.size();
+            }
+        }
+
         constexpr static size_t static_size() {
             return StaticSize;
         }
@@ -37,7 +47,7 @@ class HybridArray {
     private:
         std::array<TValue, StaticSize> array;
         std::vector<TValue> vector;
-        size_t index;
+        size_t index = 0u;
 };
 
 template<typename TValue>
