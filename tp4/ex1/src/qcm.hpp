@@ -14,7 +14,7 @@
 
 // Pour indiquer qu'une fonction-membre ne modifie pas l'état de l'objet, on écrit const
 // devant le type de retour de la fonction.
-#define ANSWER_1 true
+#define ANSWER_1 false
 
 // Le type char* est le mieux adapté pour représenter des chaînes de caractères.
 #define ANSWER_2 false
@@ -48,4 +48,4 @@
 #define ANSWER_11 true
 
 // Il faut toujours penser à appeler "delete" sur les pointeurs observants.
-#define ANSWER_12 true
+#define ANSWER_12 false
