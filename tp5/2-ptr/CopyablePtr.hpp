@@ -16,6 +16,11 @@ class CopyablePtr
         const Object& operator*() const {
             return *_obj;
         }
+
+        void operator=(std::nullptr_t newobj) {
+            delete _obj;
+            _obj = newobj;
+        }
     private:
         Object* _obj;
 };

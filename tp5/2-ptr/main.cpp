@@ -36,13 +36,13 @@ int main()
     std::cout << std::endl;
 
     // // A5. On assigne nullptr à ptr_0.
-    // print_expected("Object #0 [[ 4 ]] has been destroyed");
-    // ptr_0 = nullptr;
-    // std::cout << std::endl;
+    print_expected("Object #0 [[ 4 ]] has been destroyed");
+    ptr_0 = nullptr;
+    std::cout << std::endl;
 
-    // print_expected("ptr_0 is null");
-    // std::cout << "ptr_0 is " << (ptr_0 == nullptr ? "null" : "not null") << std::endl;
-    // std::cout << std::endl;
+    print_expected("ptr_0 is null");
+    std::cout << "ptr_0 is " << (ptr_0 == nullptr ? "null" : "not null") << std::endl;
+    std::cout << std::endl;
 
     // // B1. On crée un nouveau pointeur et on le copie.
     // print_expected("Object #1 [[ 5 ]] has been created");
