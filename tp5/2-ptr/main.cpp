@@ -90,28 +90,28 @@ int main()
     std::cout << *ptr_2 << std::endl;
     std::cout << std::endl;
 
-    // // D1. On déplace ptr_2 dans ptr_0.
-    // print_expected("Object #3 [[ 5 ]] has been destroyed");
-    // ptr_0 = std::move(ptr_2);
-    // std::cout << std::endl;
+    // D1. On déplace ptr_2 dans ptr_0.
+    print_expected("Object #3 [[ 5 ]] has been destroyed");
+    ptr_0 = std::move(ptr_2);
+    std::cout << std::endl;
 
-    // print_expected("ptr_2 is null");
-    // std::cout << "ptr_2 is " << (ptr_2 == nullptr ? "null" : "not null") << std::endl;
-    // std::cout << std::endl;
+    print_expected("ptr_2 is null");
+    std::cout << "ptr_2 is " << (ptr_2 == nullptr ? "null" : "not null") << std::endl;
+    std::cout << std::endl;
 
-    // print_expected("ptr_0 is not null");
-    // std::cout << "ptr_0 is " << (ptr_0 == nullptr ? "null" : "not null") << std::endl;
-    // std::cout << std::endl;
+    print_expected("ptr_0 is not null");
+    std::cout << "ptr_0 is " << (ptr_0 == nullptr ? "null" : "not null") << std::endl;
+    std::cout << std::endl;
 
-    // print_expected("Object #4 [[ 5 ]]");
-    // std::cout << *ptr_0 << std::endl;
-    // std::cout << std::endl;
+    print_expected("Object #4 [[ 5 ]]");
+    std::cout << *ptr_0 << std::endl;
+    std::cout << std::endl;
 
-    // // D2. On s'assure que réassigner ptr_0 à lui-même n'a pas d'effet.
-    // print_expected("Object #4 [[ 5 ]]");
-    // ptr_0 = ptr_0;
-    // std::cout << *ptr_0 << std::endl;
-    // std::cout << std::endl;
+    // D2. On s'assure que réassigner ptr_0 à lui-même n'a pas d'effet.
+    print_expected("Object #4 [[ 5 ]]");
+    ptr_0 = ptr_0;
+    std::cout << *ptr_0 << std::endl;
+    std::cout << std::endl;
 
     // // E. On vérifie que tous les Objects alloués encore en vie sont correctement détruits.
     // print_expected("Object #2 [[ 5 ]] has been destroyed\n"
