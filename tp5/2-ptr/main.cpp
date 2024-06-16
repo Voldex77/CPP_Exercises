@@ -1,5 +1,6 @@
 #include <iostream>
 #include <utility>
+#include "CopyablePtr.hpp"
 
 void print_expected(const std::string& str)
 {
@@ -10,14 +11,14 @@ void print_expected(const std::string& str)
 int main()
 {
     // // A1. Décommentez l'instruction ci-dessous pour vérifier que le programme compile.
-    // std::cout << "Debut des tests" << std::endl;
-    // std::cout << std::endl;
+    std::cout << "Debut des tests" << std::endl;
+    std::cout << std::endl;
 
     // // A2. Par défaut, un CopyablePtr est null.
-    // print_expected("null_ptr is null");
-    // CopyablePtr null_ptr;
-    // std::cout << "null_ptr is " << (null_ptr == nullptr ? "null" : "not null") << std::endl;
-    // std::cout << std::endl;
+    print_expected("null_ptr is null");
+    CopyablePtr null_ptr;
+    std::cout << "null_ptr is " << (null_ptr == nullptr ? "null" : "not null") << std::endl;
+    std::cout << std::endl;
 
     // // A3. On instancie un CopyablePtr avec la valeur 4.
     // print_expected("Object #0 [[ 4 ]] has been created");
