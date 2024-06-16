@@ -16,7 +16,6 @@ void ProgramData::get_materials(std::vector<const Material*>& materials) const
 void ProgramData::register_recipe(std::vector<std::string> materials, std::vector<std::string> products)
 {
     auto& newrecipe = _recipes.emplace_back(std::make_unique<Recipe>(std::move(materials), std::move(products)));
-    for (auto m: materials) {}
     std::cout << "Recipe " << newrecipe.get() << " has been registered";
 }
 
