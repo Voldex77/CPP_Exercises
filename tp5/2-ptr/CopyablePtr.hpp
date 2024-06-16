@@ -9,6 +9,8 @@ class CopyablePtr
 
         CopyablePtr(int n): _obj { new Object(n) } {}
 
+        CopyablePtr(const CopyablePtr& other): _obj { new Object(*other._obj) } {}
+
         bool operator==(const std::nullptr_t& ptr) const {
             return _obj == ptr;
         }
