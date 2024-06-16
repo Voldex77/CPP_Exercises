@@ -22,6 +22,12 @@ class CopyablePtr
             other._obj = nullptr;
         }
 
+        ~CopyablePtr() {
+            if (_obj != nullptr) {
+                delete _obj;
+            }
+        }
+
         bool operator==(const std::nullptr_t& ptr) const {
             return _obj == ptr;
         }
